@@ -26,8 +26,13 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-Route::get('/contact', function () {
-  return view('contact');
+Route::get('/about', function () {
+  // $articles = App\Models\Article::latest()->get(); //sort by new one
+  $articles = App\Models\Article::take(2)->latest()->get(); //bring 2 item sort by new one
+
+  return view('about', [
+    'articles' => $articles
+  ]);
 });
 
 //Route::get('/posts/{post}', [PostsController::class, 'show']); //php 8 not support => Route::get('/posts/{post}','PostsController@show');

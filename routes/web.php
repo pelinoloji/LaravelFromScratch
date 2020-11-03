@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,16 +23,18 @@ use App\Http\Controllers\PostsController;
 // });
 
 Route::get('/', function () {
-  return view('welcome');
+    return view('welcome');
 });
 
 Route::get('/about', function () {
-  // $articles = App\Models\Article::latest()->get(); //sort by new one
+    // $articles = App\Models\Article::latest()->get(); //sort by new one
   $articles = App\Models\Article::take(2)->latest()->get(); //bring 2 item sort by new one
 
   return view('about', [
-    'articles' => $articles
+    'articles' => $articles,
   ]);
 });
 
 //Route::get('/posts/{post}', [PostsController::class, 'show']); //php 8 not support => Route::get('/posts/{post}','PostsController@show');
+Route::get('/articles', 'App\Http\Controllers\ArticlesController@index');
+Route::get('/articles/{article}', 'App\Http\Controllers\ArticlesController@show');

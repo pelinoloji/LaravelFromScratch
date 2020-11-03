@@ -8,9 +8,10 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        $articles = Article::all();
+        //$articles = Article::all();
+        $articles = Article::latest()->get();
 
-        return view('articles.all', ['articles' => $articles]);
+        return view('articles.index', ['articles' => $articles]);
     }
 
     public function show($id)

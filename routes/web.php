@@ -23,11 +23,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 Route::get('/about', function () {
-    // $articles = App\Models\Article::latest()->get(); //sort by new one
+  // $articles = App\Models\Article::latest()->get(); //sort by new one
   $articles = App\Models\Article::take(2)->latest()->get(); //bring 2 item sort by new one
 
   return view('about', [
@@ -37,4 +37,8 @@ Route::get('/about', function () {
 
 //Route::get('/posts/{post}', [PostsController::class, 'show']); //php 8 not support => Route::get('/posts/{post}','PostsController@show');
 Route::get('/articles', 'App\Http\Controllers\ArticlesController@index');
+Route::post('/articles', 'App\Http\Controllers\ArticlesController@store');
+Route::get('/articles/create', 'App\Http\Controllers\ArticlesController@create');
 Route::get('/articles/{article}', 'App\Http\Controllers\ArticlesController@show');
+Route::get('/articles/{article}/edit', 'App\Http\Controllers\ArticlesController@edit');
+Route::put('/articles/{article}', 'App\Http\Controllers\ArticlesController@update');

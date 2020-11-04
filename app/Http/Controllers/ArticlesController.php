@@ -14,10 +14,10 @@ class ArticlesController extends Controller
     return view('articles.index', ['articles' => $articles]);
   }
 
-  public function show($id)
+  public function show(Article $article) //(Article is a model name $article is the wildcard name. Wildcard name should be the same as variable)
   {
     // Show a single resource...
-    $article = Article::find($id);
+    // $article = Article::find($id); If you want to use models such as (Article $article) you don't need to use it.
 
     return view('articles.show', ['article' => $article]);
   }
@@ -45,17 +45,15 @@ class ArticlesController extends Controller
     return redirect('/articles');
   }
 
-  public function edit($id)
+  public function edit(Article $article)
   {
-    $article = Article::find($id);
 
     // return view('articles.edit', ['article' => $article]);
     return view('articles.edit', compact('article'));
   }
 
-  public function update($id)
+  public function update(Article $article)
   {
-    $article = Article::find($id);
 
     $article->title = request('title');
     $article->excerpt = request('excerpt');

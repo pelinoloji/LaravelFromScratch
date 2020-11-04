@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    use HasFactory;
+  use HasFactory;
+  // public function getRouteKeyName()
+  // {
+  //   return 'slug'; // This means   Article::where('slug',$article)->first();
+  // }
 }

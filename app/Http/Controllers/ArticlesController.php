@@ -73,7 +73,8 @@ class ArticlesController extends Controller
     // $article->body = request('body');
     // $article->save();
 
-    return redirect('/articles/' . $article->id);
+    // return redirect('/articles/' . $article->id);
+    return redirect(route('articles.show', $article));
   }
 
   public function validateArticle()

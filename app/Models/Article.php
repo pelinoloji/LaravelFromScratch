@@ -8,8 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
   use HasFactory;
-  // public function getRouteKeyName()
-  // {
-  //   return 'slug'; // This means   Article::where('slug',$article)->first();
-  // }
+  protected $fillable = ['title', 'excerpt', 'body']; // OR you can use ====>  protected $guarded = [];   // Whichever you feel comfortable 
 }

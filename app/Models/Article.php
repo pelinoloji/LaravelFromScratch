@@ -9,4 +9,9 @@ class Article extends Model
 {
   use HasFactory;
   protected $fillable = ['title', 'excerpt', 'body']; // OR you can use ====>  protected $guarded = [];   // Whichever you feel comfortable 
+
+  public function user()
+  {
+    return $this->belongsTo(User::class);
+  }
 }

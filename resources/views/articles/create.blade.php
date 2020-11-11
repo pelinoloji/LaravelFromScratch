@@ -25,12 +25,25 @@
         </div>
 
         <div class="field">
+          <label class="label" for="tags">Tags</label>
+
+          <div class="control">
+            <select name="tags[]" id="tags" multiple>
+              @foreach ($tags as $tag)
+              <option value="{{$tag->id}}">{{$tag->name}}</option>
+              @endforeach
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
           <label class="label" for="body">Body</label>
 
           <div class="control">
             <textarea class="textarea" name="body" id="body"></textarea>
           </div>
         </div>
+
         <div class="field is-grouped">
           <div class="control">
             <button class="button is-link" type="submit">Submit</button>

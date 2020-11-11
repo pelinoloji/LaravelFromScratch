@@ -27,7 +27,6 @@ class ArticleFactory extends Factory
       'title' => $this->faker->sentence,
       'excerpt' => $this->faker->sentence,
       'body' => $this->faker->paragraph
-
     ];
   }
 }

@@ -8,9 +8,14 @@
         <h2>{{ $article->title }}</h2>
       </div>
       <p>
-        <img src="/images/banner.jpg" alt="" class="image image-full" /> 
+        <img src="/images/banner.jpg" alt="" class="image image-full" />
       </p>
-      <p>{{ $article->body }}</p>
+      <p>{!! $article->body !!}</p>
+
+      <p>@foreach ($article -> tags as $tag)
+        <a href="#">{{ $tag->name }}</a>
+        @endforeach
+      </p>
     </div>
   </div>
 </div>

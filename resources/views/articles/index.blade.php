@@ -6,7 +6,8 @@
 
     <div id="sidebar">
       <ul class="style1">
-        @foreach ($articles as $article)
+        <!-- forelse => inclues if statement -->
+        @forelse ($articles as $article)
         <div class="content">
           <div class="title">
             <li class="first">
@@ -24,7 +25,9 @@
           </p>
 
         </div>
-        @endforeach
+        @empty
+        <h3>No relevant articles, sorry!</h3>
+        @endforelse
       </ul>
 
     </div>

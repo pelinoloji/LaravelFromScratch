@@ -36,7 +36,7 @@ Route::get('/about', function () {
 });
 
 //Route::get('/posts/{post}', [PostsController::class, 'show']); //php 8 not support => Route::get('/posts/{post}','PostsController@show');
-Route::get('/articles', 'App\Http\Controllers\ArticlesController@index');
+Route::get('/articles', 'ArticlesController@index')->name('articles.index');
 Route::post('/articles', 'App\Http\Controllers\ArticlesController@store');
 Route::get('/articles/create', 'App\Http\Controllers\ArticlesController@create');
 Route::get('/articles/{article}', 'App\Http\Controllers\ArticlesController@show')->name('articles.show');
